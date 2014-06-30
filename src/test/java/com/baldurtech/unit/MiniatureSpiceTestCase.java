@@ -66,10 +66,24 @@ public class MiniatureSpiceTestCase {
         assertEquals(expectedResult, actualResult, expectedResult == actualResult);
     }
 
+    public static void assertNull(Object actualResult) {
+        assertEquals(null, actualResult, actualResult == null);
+    }
+
+    public static void assertEquals(Object expectedResult, Object actualResult) {
+        Boolean testResult = false;
+        if(expectedResult == null && actualResult == null) {
+            testResult = true;
+        } else if(expectedResult != null){
+            testResult = expectedResult.equals(actualResult);
+        }
+        assertEquals(expectedResult, actualResult, testResult);
+    }
+
     private static void assertEquals(Object expectedResult, Object actualResult, Boolean testSuccess) {
         if(! testSuccess) {
             testResult = false;
-            System.out.println("Expected `" + expectedResult + "`, but `" + actualResult + "`");
+            System.out.println("Expected `" + (expectedResult == null?"NULL":expectedResult) + "`, but `" + (actualResult == null?"NULL":actualResult) + "`");
         }
     }
 
