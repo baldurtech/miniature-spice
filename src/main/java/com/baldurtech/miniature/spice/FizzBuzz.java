@@ -5,9 +5,9 @@ public class FizzBuzz {
         return String.valueOf(num);
     }
 
-    public static void main(String[] args) {
-        Boolean testResult = true;
+    static Boolean testResult = true;
 
+    public static void main(String[] args) {
         FizzBuzz fizzBuzz = new FizzBuzz();
         String actualResult = fizzBuzz.say(1);
         if(false == "1".equals(actualResult)) {
