@@ -14,17 +14,21 @@ public class FizzBuzz {
 
         assertEquals("2", fizzBuzz.say(2));
 
-        if(testResult) {
-            System.out.println("TEST SUCCESS!");
-        } else {
-            System.out.println("FAIL!");
-        }
+        outputTestReport();
     }
 
     public static void assertEquals(String expectedResult, String actualResult) {
         if(false == expectedResult.equals(actualResult)) {
             testResult = false;
             System.out.println("Expected `" + expectedResult + "`, but `" + actualResult + "`");
+        }
+    }
+
+    private static void outputTestReport() {
+        if(testResult) {
+            System.out.println("TEST SUCCESS!");
+        } else {
+            System.out.println("FAIL!");
         }
     }
 }
