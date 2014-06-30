@@ -4,4 +4,4 @@ CLASSPATH=lib/reflections-0.9.9-RC2.jar:target/classes:target/test-classes
 CLASSPATH=$CLASSPATH:~/.m2/repository/com/google/guava/guava/15.0/guava-15.0.jar
 CLASSPATH=$CLASSPATH:~/.m2/repository/org/javassist/javassist/3.18.2-GA/javassist-3.18.2-GA.jar
 
-java -classpath $CLASSPATH com.baldurtech.miniature.spice.MiniatureSpiceTestCase
+java -classpath $CLASSPATH com.baldurtech.miniature.spice.MiniatureSpiceTestCase com.baldurtech.miniature.spice

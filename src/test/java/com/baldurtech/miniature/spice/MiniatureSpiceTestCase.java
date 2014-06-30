@@ -12,19 +12,21 @@ public class MiniatureSpiceTestCase {
     static Boolean testResult = true;
 
     public static void main(String[] args) throws Exception {
-        String testPackage = "com.baldurtech.miniature.spice";
+        if(args.length > 0) {
+            String testPackage = args[0];
 
-        Reflections reflections = new Reflections(testPackage);
+            Reflections reflections = new Reflections(testPackage);
 
-        Set<Class<? extends MiniatureSpiceTestCase>> allTestCases =
-            reflections.getSubTypesOf(MiniatureSpiceTestCase.class);
+            Set<Class<? extends MiniatureSpiceTestCase>> allTestCases =
+                reflections.getSubTypesOf(MiniatureSpiceTestCase.class);
 
-        for(Class clazz: allTestCases) {
-            System.out.println("Testing: " + clazz.getName());
-            runAllTests(clazz);
+            for(Class clazz: allTestCases) {
+                System.out.println("Testing: " + clazz.getName());
+                runAllTests(clazz);
+            }
+
+            outputTestReport();
         }
-
-        outputTestReport();
     }
 
     private static void runAllTests(Class clazz) throws Exception {
