@@ -5,13 +5,14 @@ public class FizzBuzzTest {
     static Boolean testResult = true;
 
     public static void main(String[] args) {
-        FizzBuzz fizzBuzz = new FizzBuzz();
+        FizzBuzz fizzBuzz1 = new FizzBuzz();
+        assertEquals("1", fizzBuzz1.say(1));
 
-        assertEquals("1", fizzBuzz.say(1));
+        FizzBuzz fizzBuzz2 = new FizzBuzz();
+        assertEquals("2", fizzBuzz2.say(2));
 
-        assertEquals("2", fizzBuzz.say(2));
-
-        assertEquals("Fizz", fizzBuzz.say(3));
+        FizzBuzz fizzBuzz3 = new FizzBuzz();
+        assertEquals("Fizz", fizzBuzz3.say(3));
 
         outputTestReport();
     }
