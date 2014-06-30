@@ -10,6 +10,10 @@ public class FizzBuzz {
             if(thisIsABug) return "42";
             return "Fizz";
         }
+
+        if(num % 5 == 0) {
+            return "Buzz";
+        }
         return String.valueOf(num);
     }
 }
