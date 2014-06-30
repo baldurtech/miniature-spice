@@ -3,19 +3,33 @@ package com.baldurtech.miniature.spice;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Set;
+
+import org.reflections.Reflections;
 
 public class MiniatureSpiceTestCase {
 
     static Boolean testResult = true;
 
     public static void main(String[] args) throws Exception {
-        runAllTests(FizzBuzzTest.class);
+        String testPackage = "com.baldurtech.miniature.spice";
+
+        Reflections reflections = new Reflections(testPackage);
+
+        Set<Class<? extends MiniatureSpiceTestCase>> allTestCases =
+            reflections.getSubTypesOf(MiniatureSpiceTestCase.class);
+
+        for(Class clazz: allTestCases) {
+            System.out.println("Testing: " + clazz.getName());
+            runAllTests(clazz);
+        }
+
         outputTestReport();
     }
 
     private static void runAllTests(Class clazz) throws Exception {
         for(Method method: getAllTestMethods(clazz)) {
-            System.out.println("testing: " + method.getName());
+            System.out.println("    testing: " + method.getName());
 
             try {
                 // Object obj = new FizzBuzz();
