@@ -65,6 +65,13 @@ public class MiniatureSpiceTestCase {
         }
     }
 
+    public static void assertEquals(int expectedResult, int actualResult) {
+        if(expectedResult != actualResult) {
+            testResult = false;
+            System.out.println("Expected `" + expectedResult + "`, but `" + actualResult + "`");
+        }
+    }
+
     private static void outputTestReport() {
         if(testResult) {
             System.out.println("TEST SUCCESS!");
