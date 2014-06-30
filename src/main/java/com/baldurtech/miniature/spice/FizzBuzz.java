@@ -2,6 +2,9 @@ package com.baldurtech.miniature.spice;
 
 public class FizzBuzz {
     public String say(Integer num) {
+        if(num % 3 == 0) {
+            return "Fizz";
+        }
         return String.valueOf(num);
     }
 
@@ -13,6 +16,8 @@ public class FizzBuzz {
         assertEquals("1", fizzBuzz.say(1));
 
         assertEquals("2", fizzBuzz.say(2));
+
+        assertEquals("Fizz", fizzBuzz.say(3));
 
         outputTestReport();
     }
