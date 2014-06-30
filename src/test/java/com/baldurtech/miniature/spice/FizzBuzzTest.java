@@ -9,7 +9,11 @@ public class FizzBuzzTest {
     static Boolean testResult = true;
 
     public static void main(String[] args) throws Exception {
-        Class clazz = FizzBuzzTest.class;
+        runAllTests(FizzBuzzTest.class);
+        outputTestReport();
+    }
+
+    private static void runAllTests(Class clazz) throws Exception {
         for(Method method: getAllTestMethods(clazz)) {
             System.out.println("testing: " + method.getName());
 
@@ -19,8 +23,6 @@ public class FizzBuzzTest {
             // obj.methodName();
             method.invoke(obj, new Object[]{});
         }
-
-        outputTestReport();
     }
 
     private static List<Method> getAllTestMethods(Class clazz) {
