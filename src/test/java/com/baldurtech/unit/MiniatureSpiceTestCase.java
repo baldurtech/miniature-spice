@@ -1,4 +1,4 @@
-package com.baldurtech.miniature.spice;
+package com.baldurtech.unit;
 
 import java.lang.reflect.Method;
 import java.util.List;
