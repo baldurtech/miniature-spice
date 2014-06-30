@@ -60,14 +60,15 @@ public class MiniatureSpiceTestCase {
 
     public static void assertEquals(String expectedResult, String actualResult) {
         Boolean testFail = false == expectedResult.equals(actualResult);
-        if(testFail) {
-            testResult = false;
-            System.out.println("Expected `" + expectedResult + "`, but `" + actualResult + "`");
-        }
+        assertEquals(expectedResult, actualResult, testFail);
     }
 
     public static void assertEquals(int expectedResult, int actualResult) {
         Boolean testFail = expectedResult != actualResult;
+        assertEquals(expectedResult, actualResult, testFail);
+    }
+
+    private static void assertEquals(Object expectedResult, Object actualResult, Boolean testFail) {
         if(testFail) {
             testResult = false;
             System.out.println("Expected `" + expectedResult + "`, but `" + actualResult + "`");
