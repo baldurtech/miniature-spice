@@ -1,13 +1,24 @@
 package com.baldurtech.miniature.spice;
 
+import java.lang.reflect.Method;
+
 public class FizzBuzzTest {
 
     static Boolean testResult = true;
 
-    public static void main(String[] args) {
-        new FizzBuzzTest().test_1_should_be_1();
-        new FizzBuzzTest().test_2_should_be_2();
-        new FizzBuzzTest().test_3_should_be_Fizz();
+    public static void main(String[] args) throws Exception {
+        Method[] methods = FizzBuzzTest.class.getDeclaredMethods();
+        for(Method method: methods) {
+            if(method.getName().startsWith("test")) {
+                System.out.println("testing: " + method.getName());
+
+                // Object obj = new FizzBuzz();
+                Object obj = FizzBuzzTest.class.newInstance();
+
+                // obj.methodName();
+                method.invoke(obj, new Object[]{});
+            }
+        }
 
         outputTestReport();
     }
