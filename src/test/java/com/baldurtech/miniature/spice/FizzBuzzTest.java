@@ -17,11 +17,17 @@ public class FizzBuzzTest {
         for(Method method: getAllTestMethods(clazz)) {
             System.out.println("testing: " + method.getName());
 
-            // Object obj = new FizzBuzz();
-            Object obj = clazz.newInstance();
+            try {
+                // Object obj = new FizzBuzz();
+                Object obj = clazz.newInstance();
 
-            // obj.methodName();
-            method.invoke(obj, new Object[]{});
+                // obj.methodName();
+                method.invoke(obj, new Object[]{});
+            } catch(Exception e) {
+                testResult = false;
+                System.out.println("Unexpected exception!");
+                e.printStackTrace();
+            }
         }
     }
 
@@ -37,6 +43,10 @@ public class FizzBuzzTest {
     }
 
     FizzBuzz fizzBuzz = new FizzBuzz();
+
+    public void test_4_should_be_4() {
+        assertEquals("4", fizzBuzz.say(4));
+    }
 
     public void test_1_should_be_1() {
         assertEquals("1", fizzBuzz.say(1));
